@@ -1,0 +1,17 @@
+{
+  "name": "com.mandariini.guid-based-reference",
+  "version": "0.1.0",
+  "displayName": "Guid Based Reference",
+  "description": "Attach stable GUIDs to GameObjects and resolve references across scenes, including unloaded scenes.",
+  "unity": "2019.4",
+  "author": {
+    "name": "Mandariini"
+  },
+  "samples": [
+    {
+      "displayName": "Cross-scene reference sample",
+      "description": "Scenes and scripts demonstrating GuidReference across loaded scenes.",
+      "path": "Samples"
+    }
+  ]
+}

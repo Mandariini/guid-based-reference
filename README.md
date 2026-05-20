@@ -2,6 +2,12 @@ Guid Based Reference
 
 License - Please see LICENSE.md in this repository
 
+Install via Unity Package Manager with the Git URL below:
+
+```text
+https://github.com/Mandariini/guid-based-reference.git?path=/Assets/CrossSceneReference
+```
+
 Summary
 A component to give a Globaly Unique IDentifier (GUID) to a Game Object.
 This GUID can then be used to reference an object even if it is another Scene, not loaded yet, or otherwise not easy to directly reference.
@@ -17,7 +23,7 @@ In any code that needs to be able to reference objects by GUID, add a GuidRefere
 
 GuidReference.gameObject will then return the GameObject if it is loaded, otherwise null.
 
-Look in the CrossSceneReference/SampleContent folder for example usage.
+Look in the CrossSceneReference/Samples folder for example usage.
 
 Load up the LoadFirst scene, and then use the SceneLoader object to load 'LoadSecond'
 

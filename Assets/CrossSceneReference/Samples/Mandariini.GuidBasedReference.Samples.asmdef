@@ -1,0 +1,16 @@
+{
+  "name": "Mandariini.GuidBasedReference.Samples",
+  "rootNamespace": "",
+  "references": [
+    "Mandariini.GuidBasedReference"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

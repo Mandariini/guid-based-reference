@@ -15,7 +15,7 @@ In any code that needs to be able to reference objects by GUID, add a GuidRefere
 
 GuidReference.gameObject will then return the GameObject if it is loaded, otherwise null.
 
-Look in the CrossSceneReference/SampleContent folder for example usage.
+Look in the CrossSceneReference/Samples folder for example usage.
 
 Load up the LoadFirst scene, and then use the SceneLoader object to load 'LoadSecond'
 

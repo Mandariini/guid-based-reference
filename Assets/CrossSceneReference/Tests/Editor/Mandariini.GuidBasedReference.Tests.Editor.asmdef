@@ -1,0 +1,21 @@
+{
+  "name": "Mandariini.GuidBasedReference.Tests.Editor",
+  "rootNamespace": "",
+  "references": [
+    "Mandariini.GuidBasedReference"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}
