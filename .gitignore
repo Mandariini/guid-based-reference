@@ -75,6 +75,7 @@ crashlytics-build.properties
 
 # Lighting data
 **/LightingData.asset
+**/LightingData.asset.meta
 **/*.giparams
 **/LightingData
 **/ProbeVolumes/
@@ -93,7 +94,6 @@ Lightmap-*.exr.meta
 ProbeVolumes*.exr
 ProbeVolumes*.exr.meta
 
-Samples
 *.gif
 
 *.lscache
