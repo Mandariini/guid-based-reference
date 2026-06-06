@@ -102,6 +102,12 @@ public class GuidComponent : MonoBehaviour, ISerializationCallbackReceiver
 
     private bool IsAssetOnDisk()
     {
+        // 'this' can be a destroyed/invalid Unity object during domain reload;
+        // PrefabUtility will throw ArgumentNullException in that case, so guard first.
+        if (this == null)
+        {
+            return false;
+        }
         return PrefabUtility.IsPartOfPrefabAsset(this) || IsEditingInPrefabMode();
     }
 #endif
