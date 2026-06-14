@@ -1,6 +1,6 @@
 ﻿<Solution>
   <Project Path="Mandariini.GuidBasedReference.Editor.csproj" />
-  <Project Path="Mandariini.GuidBasedReference.Samples.csproj" />
   <Project Path="Mandariini.GuidBasedReference.csproj" />
+  <Project Path="Mandariini.GuidBasedReference.Samples.csproj" />
   <Project Path="Mandariini.GuidBasedReference.Tests.Editor.csproj" />
 </Solution>
