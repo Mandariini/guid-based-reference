@@ -4,6 +4,7 @@ using UnityEngine;
 
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.SceneManagement;
 #endif
 
 // This component gives a GameObject a stable, non-replicatable Globally Unique IDentifier.
@@ -100,10 +101,18 @@ public class GuidComponent : MonoBehaviour, ISerializationCallbackReceiver
             return false;
         }
 
-        // Restrict detection to actual persistent prefab assets only.
-        // Broader stage checks can misclassify scene instances during editor transitions
-        // (apply/revert, previews), causing their GUIDs to be cleared and regenerated.
-        return PrefabUtility.IsPartOfPrefabAsset(gameObject) || EditorUtility.IsPersistent(gameObject);
+        if (PrefabUtility.IsPartOfPrefabAsset(gameObject) || EditorUtility.IsPersistent(gameObject))
+        {
+            return true;
+        }
+
+        // Objects in preview scenes (prefab mode stage, PrefabUtility.LoadPrefabContents, previews)
+        // are not persistent yet, but their contents get saved into a prefab asset, so they must
+        // never own a GUID either. Without this, editing a prefab (variant) in prefab mode bakes
+        // serializedGuid into the file as prefab instance overrides.
+        // Scene instances always live in the main stage, so they are unaffected; momentary clears
+        // during apply/revert are recovered from the runtime guid in CreateGuid.
+        return gameObject.scene.IsValid() && EditorSceneManager.IsPreviewScene(gameObject.scene);
     }
 #endif
 
@@ -149,6 +158,12 @@ public class GuidComponent : MonoBehaviour, ISerializationCallbackReceiver
         // at a time that lets us detect what we are
         if (IsAssetOnDisk())
         {
+            // release any registration made before we knew we are prefab contents
+            // (e.g. a prefab variant that had a GUID baked into it as an override)
+            if (guid != System.Guid.Empty)
+            {
+                GuidManager.Remove(guid);
+            }
             serializedGuid = null;
             guid = System.Guid.Empty;
         }
